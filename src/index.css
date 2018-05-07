@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,600,700,900');
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,7 +12,7 @@
 
 body {
   font-size: 1rem;
-  font-family: monospace;
+  font-family: "Gothic A1", "Helvetica", sans-serif;
   background-color: #141417;
   color: #fff;
 }
@@ -20,7 +22,7 @@ body {
   justify-content: center;
 }
 
-.wrapper--global {
+#wrapperGlobal {
   padding-top: 100px;
   width: 66%;
 }
