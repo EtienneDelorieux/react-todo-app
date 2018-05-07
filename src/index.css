@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+  font-family: monospace;
+  background-color: #141417;
+  color: #fff;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper--global {
+  padding-top: 100px;
+  width: 66%;
+}
