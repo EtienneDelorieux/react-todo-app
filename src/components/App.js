@@ -1,93 +1,65 @@
 import React, { Component } from 'react';
 
-const taskList = [
-  {
-    taskTitle: 'Climb Everest',
-    done: false,
-    objectID: 0,
-  },
-  {
-    taskTitle: 'Go to Canada',
-    done: false,
-    objectID: 1,
-  },
-  {
-    taskTitle: 'Get a PVT',
-    done: true,
-    objectID: 2,
-  },
-  {
-    taskTitle: 'Watch "Merue" movie',
-    done: true,
-    objectID: 3,
-  },
-]
-
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      taskList,
-      finishedTasks : [],
-      comingTasks : [],
+      taskList: [],
+      inputValue: "",
+      objectID: 0,
+    }
+  }
+
+  addTask(event) {
+    this.setState({ objectID: this.state.objectID += 1 })
+
+    const newTask = {
+      taskTitle: this.state.inputValue,
+      objectID: this.state.objectID
     }
 
-    this.finishTask = this.finishTask.bind(this)
+    const updatedTaskList = [...this.state.taskList]
+    updatedTaskList.push(newTask)
+    this.setState({ taskList: updatedTaskList, inputValue: "" })
   }
 
-  updateTaskList() {
-    const finishedTasks = taskList.filter(item => item.done === false)
-    this.setState({ finishedTasks })
-    const comingTasks = taskList.filter(item => item.done !== false)
-    this.setState({ comingTasks })
-    console.log(this.state.finishedTasks)
-    console.log(this.state.comingTasks)
-  }
-
-  deleteTask(id) {
+  finishTask(id) {
     const updatedTaskList = this.state.taskList.filter(item => item.objectID !== id)
     this.setState({ taskList: updatedTaskList })
   }
 
-  finishTask(id) {
-    const selectedTask = taskList.find(item => item.objectID === id)
-    selectedTask.done = true
-    // updateTaskList()
-    console.log(selectedTask)
+  updateInputValue(event) {
+    this.setState({ inputValue: event.target.value })
+    console.log(this.state.inputValue)
   }
 
   render() {
     return (
-      <div className="todo">
-        <h2>Todo</h2>
-          {this.state.comingTasks.map(item =>
-            <div className="task" key={item.objectID}>
-              <span className="deleteTask">
-                <button type="button" onClick={() => this.deleteTask(item.objectID)}>
-                  <i className="fas fa-times"></i>
-                </button>
-              </span>
-              {item.taskTitle}
-              <span className="finishTask">
-                <button type="button" onClick={() => this.finishTask(item.objectID)}>
-                  <i className="fas fa-check"></i>
-                </button>
-              </span>
-              <p>{item.done === true ? "done" : "to be done"}</p>
-            </div>
-          )}
-          <div className="addTask">
+      <div className="task__list">
+        <h1>Todo</h1>
+          <div className="task__add">
             <form>
-              <input type="text" placeholder="What should I do next?" />
-              <button type="button">
+              <input
+                type="text"
+                value={this.state.inputValue}
+                placeholder="What should I do next?"
+                onChange={(event) => this.updateInputValue(event)}
+              />
+              <button type="button" onClick={(event) => this.addTask()}>
                 <i className="fas fa-plus"></i>
               </button>
             </form>
           </div>
-
-          <h2>Done</h2>
+          {this.state.taskList.map(item =>
+            <div className="task" key={item.objectID} onClick={() => this.finishTask(item.objectID)}>
+              {item.taskTitle}
+              <span className="task__mark">
+                <p>Mark as done<i className="fas fa-check"></i></p>
+              </span>
+            </div>
+          )}
       </div>
     );
   }
