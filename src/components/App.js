@@ -45,6 +45,7 @@ class App extends React.Component {
                 type="text"
                 value={this.state.inputValue}
                 placeholder="What should I do next?"
+                autofocus="autofocus"
                 onChange={(event) => this.updateInputValue(event)}
               />
               <button type="submit">
