@@ -7,7 +7,7 @@
 }
 
 :root {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
@@ -24,11 +24,13 @@ body {
 
 #wrapperGlobal {
   padding-top: 100px;
-  width: 66%;
+  width: 40%;
 }
 
 h1 {
-  margin-bottom: 50px;
+  font-size: 1rem;
+  font-weight: 900;
+  margin-bottom: 30px;
 }
 
 input:focus,
@@ -51,15 +53,15 @@ button:focus {
 .task__add button,
 .task__title,
 .task__finish button {
-  height: 50px;
-  line-height: 50px;
+  height: 60px;
+  line-height: 60px;
   border: none;
   transition: all 0.25s;
   font-size: 1rem;
 }
 
 .task__add input {
-  width: calc(100% - 50px);
+  width: calc(100% - 60px);
   padding: 0 20px;
   background-color: #26262d;
   color: #fff;
@@ -75,9 +77,9 @@ button:focus {
 }
 
 .task__add button {
-  width: 50px;
+  width: 60px;
   background-color: #14c384;
-  color: #fff;
+  color: #141417;
 }
 
 .task__add button:hover {
@@ -89,14 +91,17 @@ button:focus {
   background-color: #1d1d21;
   width: 100%;
   color: #7d7d8e;
-  height: 50px;
-  line-height: 50px;
+  height: 40px;
+  line-height: 40px;
   padding: 0 20px;
   margin-bottom: 10px;
   position: relative;
+  transition: all 0.25s;
+  font-size: 0.8rem;
 }
 
 .task:hover {
+  background-color: #19191d;
   cursor: pointer;
 }
 

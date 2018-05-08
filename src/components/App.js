@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -13,6 +13,7 @@ class App extends Component {
   }
 
   addTask(event) {
+    event.preventDefault()
     this.setState({ objectID: this.state.objectID += 1 })
 
     const newTask = {
@@ -25,35 +26,34 @@ class App extends Component {
     this.setState({ taskList: updatedTaskList, inputValue: "" })
   }
 
-  finishTask(id) {
+  removeTask(id) {
     const updatedTaskList = this.state.taskList.filter(item => item.objectID !== id)
     this.setState({ taskList: updatedTaskList })
   }
 
   updateInputValue(event) {
     this.setState({ inputValue: event.target.value })
-    console.log(this.state.inputValue)
   }
 
   render() {
     return (
       <div className="task__list">
-        <h1>Todo</h1>
+        <h1>Todo.</h1>
           <div className="task__add">
-            <form>
+            <form onSubmit={(event) => this.addTask(event)}>
               <input
                 type="text"
                 value={this.state.inputValue}
                 placeholder="What should I do next?"
                 onChange={(event) => this.updateInputValue(event)}
               />
-              <button type="button" onClick={(event) => this.addTask()}>
+              <button type="submit">
                 <i className="fas fa-plus"></i>
               </button>
             </form>
           </div>
           {this.state.taskList.map(item =>
-            <div className="task" key={item.objectID} onClick={() => this.finishTask(item.objectID)}>
+            <div className="task" key={item.objectID} onClick={() => this.removeTask(item.objectID)}>
               {item.taskTitle}
               <span className="task__mark">
                 <p>Mark as done<i className="fas fa-check"></i></p>
