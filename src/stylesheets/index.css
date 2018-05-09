@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css?family=Gothic+A1:400,600,700,900");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+:root {
+  font-size: 18px; }
+
+body {
+  font-size: 1rem;
+  font-family: "Gothic A1", "Helvetica", sans-serif;
+  background-color: #141417;
+  color: #fff; }
+
+#task__list {
+  display: flex;
+  justify-content: center; }
+
+.task__wrapper {
+  padding-top: 100px;
+  width: 40%; }
+
+h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0; }
+
+input:focus,
+button:focus {
+  outline: none; }
+
+/* TASKS */
+.task__add {
+  margin-bottom: 30px; }
+
+.task__add form,
+.task {
+  display: flex;
+  align-items: center; }
+
+.task__add input,
+.task__add button,
+.task__title,
+.task__finish button {
+  height: 60px;
+  line-height: 60px;
+  border: none;
+  transition: all 0.25s;
+  font-size: 1rem; }
+
+.task__add input {
+  width: calc(100% - 60px);
+  padding: 0 20px;
+  background-color: #26262d;
+  color: #fff; }
+
+::placeholder {
+  color: #7d7d8e; }
+
+.task__add input:focus {
+  background-color: #2e2e37;
+  box-shadow: inset 5px 0 0 #14c384; }
+
+.task__add button {
+  width: 60px;
+  background-color: #14c384;
+  color: #141417; }
+
+.task__add button:hover {
+  cursor: pointer;
+  background-color: #15d48f; }
+
+.task {
+  background-color: #1d1d21;
+  width: 100%;
+  color: #7d7d8e;
+  padding: 10px 20px;
+  line-height: 1.25rem;
+  margin-bottom: 10px;
+  position: relative;
+  transition: all 0.25s;
+  font-size: 0.8rem; }
+
+.task:hover {
+  background-color: #19191d;
+  cursor: pointer; }
+
+.task__mark {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 0.25s;
+  color: #14c384;
+  background: -moz-linear-gradient(left, rgba(25, 25, 29, 0) 0%, #19191d 75%);
+  background: -webkit-linear-gradient(left, rgba(25, 25, 29, 0) 0%, #19191d 75%);
+  background: linear-gradient(to right, rgba(25, 25, 29, 0) 0%, #19191d 75%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+
+.task__mark i {
+  margin-left: 10px; }
+
+.task:hover .task__mark {
+  opacity: 1;
+  transform: translateX(-20px); }
