@@ -17,7 +17,7 @@ class App extends React.Component {
     this.state = {
       taskList: [],
       inputValue: "",
-      objectID: 0,
+      taskId: 0,
       startDate: moment(),
     }
     this.handleChange = this.handleChange.bind(this);
@@ -31,26 +31,28 @@ class App extends React.Component {
 
   componentWillMount() {
     const localStorageTaskList = JSON.parse(localStorage.getItem("taskList"))
-    const localStorageObjectID = JSON.parse(localStorage.getItem("objectID"))
+    const localStorageObjectID = JSON.parse(localStorage.getItem("taskId"))
     if (localStorageTaskList) {
       this.setState({ taskList: localStorageTaskList })
-      this.setState({ objectID: localStorageObjectID })
+      this.setState({ taskId: localStorageObjectID })
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
     const taskListString = JSON.stringify(nextState.taskList)
     localStorage.setItem("taskList", taskListString)
-    localStorage.setItem("objectID", (this.state.objectID + 1))
+    localStorage.setItem("taskId", (this.state.taskId + 1))
   }
 
   addTask(event) {
     event.preventDefault()
-    this.setState({ objectID: (this.state.objectID + 1) })
+    this.setState({ taskId: (this.state.taskId + 1) })
+    const taskDate = event.target.querySelector(".input--date").value
 
     const newTask = {
       taskTitle: this.state.inputValue,
-      objectID: this.state.objectID
+      taskId: this.state.taskId,
+      taskDate: taskDate,
     }
 
     const updatedTaskList = [...this.state.taskList]
@@ -59,7 +61,7 @@ class App extends React.Component {
   }
 
   removeTask(id) {
-    const updatedTaskList = this.state.taskList.filter(item => item.objectID !== id)
+    const updatedTaskList = this.state.taskList.filter(item => item.taskId !== id)
     this.setState({ taskList: updatedTaskList })
   }
 
@@ -88,8 +90,13 @@ class App extends React.Component {
               </button>
             </form>
             {this.state.taskList.map(item =>
-              <div className="task" key={item.objectID} onClick={() => this.removeTask(item.objectID)}>
-                {item.taskTitle}
+              <div className="task" key={item.taskId} onClick={() => this.removeTask(item.taskId)}>
+                <span className="task__title">
+                  {item.taskTitle}
+                </span>
+                <span className="task__date">
+                  {item.taskDate}
+                </span>
                 <span className="task__mark">
                   <p><i className="fas fa-check"></i></p>
                 </span>
