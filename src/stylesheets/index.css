@@ -35,43 +35,49 @@ button:focus {
     width: 80%; } }
 
 /* TASK FORM */
-.task__add {
+.task__form {
   margin-bottom: 50px; }
 
-.task__add form {
+.task__form {
   display: flex;
   align-items: center;
-  position: relative; }
+  flex-grow: 1; }
 
-.task__add input,
-.task__add button {
+.task__form input,
+.task__button {
   height: 60px;
   line-height: 60px;
   border: none;
   transition: all 0.25s;
   font-size: 1rem; }
 
-.task__add input {
-  width: 100%;
+.task__form input {
   padding: 0 20px;
   background-color: #fff;
   color: #1f1f22; }
 
+.input--task-title,
+.input--date {
+  flex-grow: 1; }
+
+.input--date {
+  width: 125px;
+  box-shadow: inset 1px 0 0 #ebf1fb; }
+
+.task__form input:focus {
+  box-shadow: inset 5px 0 0 #152ae4; }
+
 ::placeholder {
   color: #9c9ca4; }
 
-.task__add input:focus {
-  box-shadow: inset 5px 0 0 #152ae4, 0 5px 10px rgba(8, 16, 88, 0.03), 0 10px 30px rgba(8, 16, 88, 0.1); }
-
-.task__add button {
-  position: absolute;
+.task__button {
   top: 0;
   right: 0;
   width: 60px;
   background-color: #152ae4;
   color: #ebf1fb; }
 
-.task__add button:hover {
+.task__button:hover {
   cursor: pointer;
   background-color: #273beb; }
 

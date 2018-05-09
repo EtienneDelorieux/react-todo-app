@@ -1,5 +1,13 @@
+// React
 import React from "react"
+
+// Components
 import Header from "../Header/Header"
+
+// Libraries
+import DatePicker from "react-datepicker"
+import moment from 'moment'
+import 'react-datepicker/dist/react-datepicker.css'
 
 class App extends React.Component {
 
@@ -10,7 +18,15 @@ class App extends React.Component {
       taskList: [],
       inputValue: "",
       objectID: 0,
+      startDate: moment(),
     }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
   }
 
   componentWillMount() {
@@ -40,10 +56,6 @@ class App extends React.Component {
     const updatedTaskList = [...this.state.taskList]
     updatedTaskList.push(newTask)
     this.setState({ taskList: updatedTaskList, inputValue: "" })
-    // if (this.state.inputValue !== "") {
-    // } else {
-    //   console.log("Your task can't be blank");
-    // }
   }
 
   removeTask(id) {
@@ -61,20 +73,20 @@ class App extends React.Component {
         <Header />
         <section id="task__list">
           <div className="task__wrapper">
-            <div className="task__add">
-              <form onSubmit={(event) => this.addTask(event)}>
-                <input
-                  type="text"
-                  value={this.state.inputValue}
-                  placeholder="What should I do next?"
-                  required
-                  onChange={(event) => this.updateInputValue(event)}
-                  />
-                <button type="submit">
-                  <i className="fas fa-plus"></i>
-                </button>
-              </form>
-            </div>
+            <form onSubmit={(event) => this.addTask(event)} className="task__form">
+              <input
+                type="text"
+                value={this.state.inputValue}
+                placeholder="What should I do next?"
+                required
+                onChange={(event) => this.updateInputValue(event)}
+                className="input--task-title"
+                />
+              <DatePicker selected={this.state.startDate} onChange={this.handleChange} className="input--date" />
+              <button type="submit" className="task__button">
+                <i className="fas fa-plus"></i>
+              </button>
+            </form>
             {this.state.taskList.map(item =>
               <div className="task" key={item.objectID} onClick={() => this.removeTask(item.objectID)}>
                 {item.taskTitle}
