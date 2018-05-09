@@ -12,9 +12,24 @@ class App extends React.Component {
     }
   }
 
+  componentWillMount() {
+    const localStorageTaskList = JSON.parse(localStorage.getItem("taskList"))
+    const localStorageObjectID = JSON.parse(localStorage.getItem("objectID"))
+    if (localStorageTaskList) {
+      this.setState({ taskList: localStorageTaskList })
+      this.setState({ objectID: localStorageObjectID })
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    const taskListString = JSON.stringify(nextState.taskList)
+    localStorage.setItem("taskList", taskListString)
+    localStorage.setItem("objectID", (this.state.objectID + 1))
+  }
+
   addTask(event) {
     event.preventDefault()
-    this.setState({ objectID: this.state.objectID += 1 })
+    this.setState({ objectID: (this.state.objectID + 1) })
 
     const newTask = {
       taskTitle: this.state.inputValue,
@@ -45,7 +60,7 @@ class App extends React.Component {
                 type="text"
                 value={this.state.inputValue}
                 placeholder="What should I do next?"
-                autofocus="autofocus"
+                autoFocus="autofocus"
                 onChange={(event) => this.updateInputValue(event)}
               />
               <button type="submit">
