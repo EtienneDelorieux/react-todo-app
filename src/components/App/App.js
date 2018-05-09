@@ -40,6 +40,10 @@ class App extends React.Component {
     const updatedTaskList = [...this.state.taskList]
     updatedTaskList.push(newTask)
     this.setState({ taskList: updatedTaskList, inputValue: "" })
+    // if (this.state.inputValue !== "") {
+    // } else {
+    //   console.log("Your task can't be blank");
+    // }
   }
 
   removeTask(id) {
@@ -63,6 +67,7 @@ class App extends React.Component {
                   type="text"
                   value={this.state.inputValue}
                   placeholder="What should I do next?"
+                  required
                   onChange={(event) => this.updateInputValue(event)}
                   />
                 <button type="submit">

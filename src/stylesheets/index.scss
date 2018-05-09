@@ -3,13 +3,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,600,700,900');
 
-/* TASKS */
+/* TASK FORM */
 .task__add {
   margin-bottom: 50px;
 }
 
-.task__add form,
-.task {
+.task__add form {
   display: flex;
   align-items: center;
   position: relative;
@@ -36,7 +35,7 @@
 }
 
 .task__add input:focus {
-  box-shadow: inset 5px 0 0 $primary-color, 0 5px 10px rgba(0, 0, 0, 0.03), 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 5px 0 0 $primary-color, 0 5px 10px rgba(darken($primary-color, 30%), 0.03), 0 10px 30px rgba(darken($primary-color, 30%), 0.1);
 }
 
 .task__add button {
@@ -53,10 +52,14 @@
   background-color: lighten($primary-color, 5%);
 }
 
+/* TASK ITEM */
 .task {
+  display: flex;
+  align-items: center;
+  position: relative;
   background-color: darken($light, 3%);
   width: 100%;
-  color: lighten($dark, 30%);
+  color: $dark;
   padding: 10px 20px;
   line-height: 1.25rem;
   margin-bottom: 10px;

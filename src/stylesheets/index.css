@@ -10,7 +10,7 @@
 body {
   font-size: 1rem;
   font-family: "Roboto", "Helvetica", sans-serif;
-  background-color: #e5eaf2;
+  background-color: #ebf1fb;
   color: #fff; }
 
 #task__list {
@@ -34,12 +34,11 @@ button:focus {
   .task__wrapper {
     width: 80%; } }
 
-/* TASKS */
+/* TASK FORM */
 .task__add {
   margin-bottom: 50px; }
 
-.task__add form,
-.task {
+.task__add form {
   display: flex;
   align-items: center;
   position: relative; }
@@ -56,13 +55,13 @@ button:focus {
   width: 100%;
   padding: 0 20px;
   background-color: #fff;
-  color: #141417; }
+  color: #1f1f22; }
 
 ::placeholder {
-  color: #8e8e9c; }
+  color: #9c9ca4; }
 
 .task__add input:focus {
-  box-shadow: inset 5px 0 0 #152ae4, 0 5px 10px rgba(0, 0, 0, 0.03), 0 10px 30px rgba(0, 0, 0, 0.1); }
+  box-shadow: inset 5px 0 0 #152ae4, 0 5px 10px rgba(8, 16, 88, 0.03), 0 10px 30px rgba(8, 16, 88, 0.1); }
 
 .task__add button {
   position: absolute;
@@ -70,16 +69,20 @@ button:focus {
   right: 0;
   width: 60px;
   background-color: #152ae4;
-  color: #e5eaf2; }
+  color: #ebf1fb; }
 
 .task__add button:hover {
   cursor: pointer;
   background-color: #273beb; }
 
+/* TASK ITEM */
 .task {
-  background-color: #dbe2ed;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #dee8f8;
   width: 100%;
-  color: #5b5b69;
+  color: #1f1f22;
   padding: 10px 20px;
   line-height: 1.25rem;
   margin-bottom: 10px;
