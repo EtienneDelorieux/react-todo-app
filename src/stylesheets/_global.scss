@@ -5,13 +5,13 @@
 }
 
 :root {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 body {
   font-size: 1rem;
-  font-family: "Gothic A1", "Helvetica", sans-serif;
-  background-color: #141417;
+  font-family: "Roboto", "Helvetica", sans-serif;
+  background-color: $light;
   color: #fff;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 .task__wrapper {
-  padding-top: 100px;
+  padding-top: 50px;
   width: 40%;
 }
 
@@ -34,4 +34,10 @@ h1 {
 input:focus,
 button:focus {
   outline: none;
+}
+
+@media (max-width: 999px) {
+  .task__wrapper {
+    width: 80%;
+  }
 }

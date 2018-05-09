@@ -63,7 +63,7 @@ class App extends React.Component {
                   type="text"
                   value={this.state.inputValue}
                   placeholder="What should I do next?"
-                  autoFocus="autofocus"
+                  autofocus="autofocus"
                   onChange={(event) => this.updateInputValue(event)}
                   />
                 <button type="submit">
@@ -75,7 +75,7 @@ class App extends React.Component {
               <div className="task" key={item.objectID} onClick={() => this.removeTask(item.objectID)}>
                 {item.taskTitle}
                 <span className="task__mark">
-                  <p>Mark as done<i className="fas fa-check"></i></p>
+                  <p><i className="fas fa-check"></i></p>
                 </span>
               </div>
             )}

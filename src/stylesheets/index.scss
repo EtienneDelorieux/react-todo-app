@@ -1,23 +1,22 @@
 @import "./_variables.scss";
 @import "./_global.scss";
 
-@import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,600,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,600,700,900');
 
 /* TASKS */
 .task__add {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .task__add form,
 .task {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .task__add input,
-.task__add button,
-.task__title,
-.task__finish button {
+.task__add button {
   height: 60px;
   line-height: 60px;
   border: none;
@@ -26,60 +25,62 @@
 }
 
 .task__add input {
-  width: calc(100% - 60px);
+  width: 100%;
   padding: 0 20px;
-  background-color: #26262d;
-  color: #fff;
+  background-color: #fff;
+  color: $dark;
 }
 
 ::placeholder {
-  color: #7d7d8e;
+  color: lighten($dark, 50%);
 }
 
 .task__add input:focus {
-  background-color: #2e2e37;
-  box-shadow: inset 5px 0 0 #14c384;
+  box-shadow: inset 5px 0 0 $primary-color, 0 5px 10px rgba(0, 0, 0, 0.03), 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .task__add button {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 60px;
   background-color: $primary-color;
-  color: #141417;
+  color: $light;
 }
 
 .task__add button:hover {
   cursor: pointer;
-  background-color: #15d48f;
+  background-color: lighten($primary-color, 5%);
 }
 
 .task {
-  background-color: #1d1d21;
+  background-color: darken($light, 3%);
   width: 100%;
-  color: #7d7d8e;
+  color: lighten($dark, 30%);
   padding: 10px 20px;
   line-height: 1.25rem;
   margin-bottom: 10px;
-  position: relative;
   transition: all 0.25s;
-  font-size: 0.8rem;
 }
 
 .task:hover {
-  background-color: #19191d;
+  background-color: #fff;
   cursor: pointer;
 }
 
 .task__mark {
+  font-size: 1rem;
   position: absolute;
   right: 0;
   top: 0;
   opacity: 0;
   transform: translateX(0);
   transition: all 0.25s;
-  color: #14c384;
-  background: -moz-linear-gradient(left, rgba(25,25,29,0) 0%, rgba(25,25,29,1) 75%);
-  background: -webkit-linear-gradient(left, rgba(25,25,29,0) 0%,rgba(25,25,29,1) 75%);
-  background: linear-gradient(to right, rgba(25,25,29,0) 0%,rgba(25,25,29,1) 75%);
+  color: $primary-color;
+  font-weight: 600;
+  background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
   width: 100%;
   height: 100%;
   display: flex;
@@ -93,5 +94,5 @@
 
 .task:hover .task__mark  {
   opacity: 1;
-  transform: translateX(-20px);
+  padding-right: 20px;
 }
