@@ -1,42 +1,7 @@
+@import "./_variables.scss";
+@import "./_global.scss";
+
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,600,700,900');
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-:root {
-  font-size: 18px;
-}
-
-body {
-  font-size: 1rem;
-  font-family: "Gothic A1", "Helvetica", sans-serif;
-  background-color: #141417;
-  color: #fff;
-}
-
-#root {
-  display: flex;
-  justify-content: center;
-}
-
-#wrapperGlobal {
-  padding-top: 100px;
-  width: 40%;
-}
-
-h1 {
-  font-size: 1rem;
-  font-weight: 900;
-  margin-bottom: 30px;
-}
-
-input:focus,
-button:focus {
-  outline: none;
-}
 
 /* TASKS */
 .task__add {
@@ -78,7 +43,7 @@ button:focus {
 
 .task__add button {
   width: 60px;
-  background-color: #14c384;
+  background-color: $primary-color;
   color: #141417;
 }
 

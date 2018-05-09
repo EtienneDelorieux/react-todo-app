@@ -2,7 +2,8 @@
   height: calc(100vh - 200px);
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
 #login input {
   border: none;
@@ -13,11 +14,13 @@
   padding: 0 20px;
   transition: all 0.25s;
   background-color: #333339;
-  color: #fff; }
+  color: #fff;
+}
 
 #login input:focus {
   outline: none;
-  box-shadow: inset 5px 0 0 #14c384; }
+  box-shadow: inset 5px 0 0 #14c384;
+}
 
 #login button {
   height: 60px;
@@ -27,14 +30,18 @@
   border: none;
   color: #fff;
   font-size: 1rem;
-  transition: all 0.25s; }
+  transition: all 0.25s;
+}
 
 #login button i {
-  margin-left: 10px; }
+  margin-left: 10px;
+}
 
 #login button:hover {
   cursor: pointer;
-  background-color: #15d48f; }
+  background-color: #15d48f;
+}
 
 #login button:focus {
-  outline: none; }
+  outline: none;
+}

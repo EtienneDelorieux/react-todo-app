@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import Header from "../Header/Header"
 
 class App extends React.Component {
 
@@ -52,30 +53,34 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="task__list">
-        <h1>Todo.</h1>
-          <div className="task__add">
-            <form onSubmit={(event) => this.addTask(event)}>
-              <input
-                type="text"
-                value={this.state.inputValue}
-                placeholder="What should I do next?"
-                autoFocus="autofocus"
-                onChange={(event) => this.updateInputValue(event)}
-              />
-              <button type="submit">
-                <i className="fas fa-plus"></i>
-              </button>
-            </form>
-          </div>
-          {this.state.taskList.map(item =>
-            <div className="task" key={item.objectID} onClick={() => this.removeTask(item.objectID)}>
-              {item.taskTitle}
-              <span className="task__mark">
-                <p>Mark as done<i className="fas fa-check"></i></p>
-              </span>
+      <div id="wrapperGlobal">
+        <Header />
+        <section id="task__list">
+          <div className="task__wrapper">
+            <div className="task__add">
+              <form onSubmit={(event) => this.addTask(event)}>
+                <input
+                  type="text"
+                  value={this.state.inputValue}
+                  placeholder="What should I do next?"
+                  autoFocus="autofocus"
+                  onChange={(event) => this.updateInputValue(event)}
+                  />
+                <button type="submit">
+                  <i className="fas fa-plus"></i>
+                </button>
+              </form>
             </div>
-          )}
+            {this.state.taskList.map(item =>
+              <div className="task" key={item.objectID} onClick={() => this.removeTask(item.objectID)}>
+                {item.taskTitle}
+                <span className="task__mark">
+                  <p>Mark as done<i className="fas fa-check"></i></p>
+                </span>
+              </div>
+            )}
+          </div>
+        </section>
       </div>
     );
   }

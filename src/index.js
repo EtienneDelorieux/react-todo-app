@@ -3,9 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Components
-import App from './components/App';
+import App from './components/App/App';
 
 // CSS
-import './index.css';
+import './stylesheets/index.css';
 
-ReactDOM.render(<App />, document.getElementById('wrapperGlobal'));
+ReactDOM.render(<App />, document.getElementById('root'));
