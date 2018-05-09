@@ -66,12 +66,11 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: darken($light, 3%);
   width: 100%;
   color: $dark;
-  padding: 10px 20px;
+  padding: 20px 0;
   line-height: 1.25rem;
-  margin-bottom: 10px;
+  border-bottom: 1px solid darken($light, 5%);
   transition: all 0.25s;
 }
 
@@ -80,8 +79,12 @@
   cursor: pointer;
 }
 
+.task__date {
+  padding-left: 20px;
+}
+
 .task__mark {
-  font-size: 1rem;
+  font-size: 1.5rem;
   position: absolute;
   right: 0;
   top: 0;
