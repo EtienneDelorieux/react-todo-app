@@ -13,7 +13,6 @@ import 'react-datepicker/dist/react-datepicker.css'
 function DisplayTaskDate(props) {
   const dateToday = moment(new Date()).format("MM/DD/YYYY")
   const dateTomorrow = moment(new Date()).add(1,'days').format("MM/DD/YYYY")
-  console.log(dateTomorrow)
 
   if (props.taskDate === dateToday) {
     return "Today";
@@ -21,6 +20,15 @@ function DisplayTaskDate(props) {
     return "Tomorrow";
   } else
   return props.taskDate
+}
+
+// Sort tasks by date
+function compare(a, b) {
+  if (a.taskDate < b.taskDate)
+    return -1;
+  if (a.taskDate > b.taskDate)
+    return 1;
+  return 0;
 }
 
 class App extends React.Component {
@@ -35,6 +43,7 @@ class App extends React.Component {
       startDate: moment(),
     }
     this.handleChange = this.handleChange.bind(this);
+    this.state.taskList.sort(compare);
   }
 
   handleChange(date) {
@@ -84,6 +93,7 @@ class App extends React.Component {
   }
 
   render() {
+    this.state.taskList.sort(compare)
     return (
       <div id="wrapperGlobal">
         <Header />
