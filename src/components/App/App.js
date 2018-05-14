@@ -7,7 +7,12 @@ import Header from "../Header/Header"
 // Libraries
 import DatePicker from "react-datepicker"
 import moment from 'moment'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
+// CSS
 import 'react-datepicker/dist/react-datepicker.css'
+
+
 
 // Display "Today" or "Tomorrow" or the date
 function DisplayTaskDate(props) {
@@ -83,8 +88,9 @@ class App extends React.Component {
     this.setState({ taskList: updatedTaskList, inputValue: "" })
   }
 
-  removeTask(id) {
-    const updatedTaskList = this.state.taskList.filter(item => item.taskId !== id)
+  removeTask(event, task) {
+    event.target.parentElement.classList.add("animate", "bounce")
+    const updatedTaskList = this.state.taskList.filter(item => item.taskId !== task.taskId)
     this.setState({ taskList: updatedTaskList })
   }
 
@@ -113,19 +119,27 @@ class App extends React.Component {
                 <i className="fas fa-plus"></i>
               </button>
             </form>
-            {this.state.taskList.map(item =>
-              <div className="task" key={item.taskId} onClick={() => this.removeTask(item.taskId)}>
-                <span className="task__title">
-                  {item.taskTitle}
-                </span>
-                <span className="task__date">
-                  <DisplayTaskDate taskDate={item.taskDate} />
-                </span>
-                <span className="task__mark">
-                  <p><i className="fas fa-check"></i></p>
-                </span>
-              </div>
-            )}
+            <TransitionGroup className="task__list">
+              {this.state.taskList.map(task => (
+                <CSSTransition
+                  key={task.taskId}
+                  timeout={500}
+                  classNames="fade"
+                >
+                <div className="task" key={task.taskId} onClick={(event) => this.removeTask(event, task)}>
+                  <span className="task__title">
+                    {task.taskTitle}
+                  </span>
+                  <span className="task__date">
+                    <DisplayTaskDate taskDate={task.taskDate} />
+                  </span>
+                  <span className="task__mark">
+                    <p><i className="fas fa-check"></i></p>
+                  </span>
+                </div>
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
           </div>
         </section>
       </div>
