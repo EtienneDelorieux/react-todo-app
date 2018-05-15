@@ -74,7 +74,9 @@ class App extends React.Component {
 
   addTask(event) {
     event.preventDefault()
-    this.setState({ taskId: (this.state.taskId + 1) })
+    this.setState((prevState) => {
+      taskId: prevState.taskId + 1
+    });
     const taskDate = event.target.querySelector(".input--date").value
 
     const newTask = {
