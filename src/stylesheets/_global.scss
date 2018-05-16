@@ -15,16 +15,6 @@ body {
   color: #fff;
 }
 
-#task__list {
-  display: flex;
-  justify-content: center;
-}
-
-.task__wrapper {
-  padding-top: 50px;
-  width: 40%;
-}
-
 h1 {
   font-size: 1rem;
   font-weight: 700;
@@ -40,4 +30,71 @@ button:focus {
   .task__wrapper {
     width: 80%;
   }
+}
+
+#task {
+  display: flex;
+  justify-content: center;
+}
+
+.task__wrapper {
+  padding-top: 50px;
+  width: 40%;
+}
+
+/* TASK FORM */
+.task__form {
+  margin-bottom: 50px;
+}
+
+.task__form {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.task__form input,
+.task__button {
+  height: 60px;
+  line-height: 60px;
+  border: none;
+  transition: all 0.25s;
+  font-size: 1rem;
+}
+
+.task__form input {
+  padding: 0 20px;
+  background-color: #fff;
+  color: $dark;
+}
+
+.input--task-title,
+.input--date {
+  flex-grow: 1;
+}
+
+.input--date {
+  width: 125px;
+  box-shadow: inset 1px 0 0 $light;
+}
+
+.task__form input:focus {
+  box-shadow: inset 5px 0 0 $primary-color;
+}
+
+::placeholder {
+  color: lighten($dark, 50%);
+}
+
+.task__button {
+  top: 0;
+  right: 0;
+  width: 60px;
+  background-color: $primary-color;
+  color: $light;
+}
+
+.task__button:hover {
+  cursor: pointer;
+  background-color: lighten($primary-color, 5%);
 }

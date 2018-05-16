@@ -13,14 +13,6 @@ body {
   background-color: #ebf1fb;
   color: #fff; }
 
-#task__list {
-  display: flex;
-  justify-content: center; }
-
-.task__wrapper {
-  padding-top: 50px;
-  width: 40%; }
-
 h1 {
   font-size: 1rem;
   font-weight: 700;
@@ -33,6 +25,14 @@ button:focus {
 @media (max-width: 999px) {
   .task__wrapper {
     width: 80%; } }
+
+#task {
+  display: flex;
+  justify-content: center; }
+
+.task__wrapper {
+  padding-top: 50px;
+  width: 40%; }
 
 /* TASK FORM */
 .task__form {
@@ -80,49 +80,3 @@ button:focus {
 .task__button:hover {
   cursor: pointer;
   background-color: #273beb; }
-
-/* TASK ITEM */
-.task {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-  color: #1f1f22;
-  padding: 20px 0;
-  line-height: 1.25rem;
-  border-bottom: 1px solid #d6e2f7;
-  transition: all 0.25s; }
-
-.task:hover {
-  background-color: #fff;
-  cursor: pointer; }
-
-.task__date {
-  padding-left: 20px; }
-
-.task__mark {
-  font-size: 1.5rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  opacity: 0;
-  transform: translateX(0);
-  transition: all 0.25s;
-  color: #152ae4;
-  font-weight: 600;
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 95%);
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 95%);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 95%);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; }
-
-.task__mark i {
-  margin-left: 10px; }
-
-.task:hover .task__mark {
-  opacity: 1;
-  padding-right: 20px; }

@@ -1,8 +1,11 @@
-import React, { Component } from "react";
+// React
+import React from "react"
 
-import "./header.css";
+// CSS
+import "./header.css"
 
-class Header extends Component {
+
+class Header extends React.Component {
   render() {
     return (
       <header><h1>Todo.</h1></header>

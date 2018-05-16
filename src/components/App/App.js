@@ -3,6 +3,7 @@ import React from "react"
 
 // Components
 import Header from "../Header/Header"
+import Task from "../Task/Task"
 
 // Libraries
 import DatePicker from "react-datepicker"
@@ -12,20 +13,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 // CSS
 import 'react-datepicker/dist/react-datepicker.css'
 
-
-
-// Display "Today" or "Tomorrow" or the date
-function DisplayTaskDate(props) {
-  const dateToday = moment(new Date()).format("MM/DD/YYYY")
-  const dateTomorrow = moment(new Date()).add(1,'days').format("MM/DD/YYYY")
-
-  if (props.taskDate === dateToday) {
-    return "Today";
-  } else if (props.taskDate === dateTomorrow) {
-    return "Tomorrow";
-  } else
-  return props.taskDate
-}
 
 // Sort tasks by date
 function compare(a, b) {
@@ -47,8 +34,8 @@ class App extends React.Component {
       taskId: 0,
       startDate: moment(),
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.state.taskList.sort(compare);
+    this.handleChange = this.handleChange.bind(this)
+    this.state.taskList.sort(compare)
   }
 
   handleChange(date) {
@@ -74,9 +61,7 @@ class App extends React.Component {
 
   addTask(event) {
     event.preventDefault()
-    this.setState((prevState) => {
-      taskId: prevState.taskId + 1
-    });
+    this.setState({ taskId: (this.state.taskId + 1) })
     const taskDate = event.target.querySelector(".input--date").value
 
     const newTask = {
@@ -105,7 +90,7 @@ class App extends React.Component {
     return (
       <div id="wrapperGlobal">
         <Header />
-        <section id="task__list">
+        <section id="task">
           <div className="task__wrapper">
             <form onSubmit={(event) => this.addTask(event)} className="task__form">
               <input
@@ -121,27 +106,22 @@ class App extends React.Component {
                 <i className="fas fa-plus"></i>
               </button>
             </form>
-            <TransitionGroup className="task__list">
+            <div className="task__list">
               {this.state.taskList.map(task => (
-                <CSSTransition
-                  key={task.taskId}
-                  timeout={500}
-                  classNames="fade"
-                >
-                <div className="task" key={task.taskId} onClick={(event) => this.removeTask(event, task)}>
-                  <span className="task__title">
-                    {task.taskTitle}
-                  </span>
-                  <span className="task__date">
-                    <DisplayTaskDate taskDate={task.taskDate} />
-                  </span>
-                  <span className="task__mark">
-                    <p><i className="fas fa-check"></i></p>
-                  </span>
-                </div>
-                </CSSTransition>
+                <Task task={task} onClick={(event) => this.removeTask(event, task)} />
+                // <div className="task" key={task.taskId} onClick={(event) => this.removeTask(event, task)}>
+                //   <span className="task__title">
+                //     {task.taskTitle}
+                //   </span>
+                //   <span className="task__date">
+                //     <DisplayTaskDate taskDate={task.taskDate} />
+                //   </span>
+                //   <span className="task__mark">
+                //     <p><i className="fas fa-check"></i></p>
+                //   </span>
+                // </div>
               ))}
-            </TransitionGroup>
+            </div>
           </div>
         </section>
       </div>
