@@ -8,7 +8,6 @@ import Task from "../Task/Task"
 // Libraries
 import DatePicker from "react-datepicker"
 import moment from 'moment'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // CSS
 import 'react-datepicker/dist/react-datepicker.css'
@@ -109,17 +108,6 @@ class App extends React.Component {
             <div className="task__list">
               {this.state.taskList.map(task => (
                 <Task task={task} onClick={(event) => this.removeTask(event, task)} />
-                // <div className="task" key={task.taskId} onClick={(event) => this.removeTask(event, task)}>
-                //   <span className="task__title">
-                //     {task.taskTitle}
-                //   </span>
-                //   <span className="task__date">
-                //     <DisplayTaskDate taskDate={task.taskDate} />
-                //   </span>
-                //   <span className="task__mark">
-                //     <p><i className="fas fa-check"></i></p>
-                //   </span>
-                // </div>
               ))}
             </div>
           </div>
