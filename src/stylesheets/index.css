@@ -34,7 +34,6 @@ button:focus {
   padding-top: 50px;
   width: 40%; }
 
-/* TASK FORM */
 .task__form {
   margin-bottom: 50px; }
 
@@ -55,6 +54,8 @@ button:focus {
   padding: 0 20px;
   background-color: #fff;
   color: #1f1f22; }
+  .task__form input:focus {
+    box-shadow: inset 5px 0 0 #152ae4; }
 
 .input--task-title,
 .input--date {
@@ -63,9 +64,6 @@ button:focus {
 .input--date {
   width: 125px;
   box-shadow: inset 1px 0 0 #ebf1fb; }
-
-.task__form input:focus {
-  box-shadow: inset 5px 0 0 #152ae4; }
 
 ::placeholder {
   color: #9c9ca4; }
@@ -76,7 +74,6 @@ button:focus {
   width: 60px;
   background-color: #152ae4;
   color: #ebf1fb; }
-
-.task__button:hover {
-  cursor: pointer;
-  background-color: #273beb; }
+  .task__button:hover {
+    cursor: pointer;
+    background-color: #273beb; }
