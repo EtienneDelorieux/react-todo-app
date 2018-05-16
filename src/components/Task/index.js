@@ -22,9 +22,23 @@ function DisplayTaskDate(props) {
 }
 
 class Task extends React.Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      taskList: this.props.taskList,
+    }
+  }
+
+  updateTaskList(task) {
+    const updatedTaskList = this.state.taskList.filter(item => item.taskId !== task.taskId)
+    this.props.onRemoveTask(updatedTaskList);
+  }
+
   render() {
     return (
-      <div className="task" key={this.props.task.taskId}>
+      <div className="task" key={this.props.task.taskId} onClick={() => this.updateTaskList(this.props.task)}>
         <span className="task__title">
           {this.props.task.taskTitle}
         </span>
