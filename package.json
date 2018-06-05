@@ -2,7 +2,7 @@
   "homepage": "http://etiennedelorieux.github.io/react-todo-app",
   "name": "react-todo-app",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "gh-pages": "^1.1.0",
     "moment": "^2.22.1",
@@ -21,6 +21,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b gh-pages -d build"
+    "deploy": "gh-pages -d build"
   }
 }
