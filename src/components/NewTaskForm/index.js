@@ -8,6 +8,7 @@ import moment from "moment";
 // CSS
 import "./new-task-form.css"
 
+
 class NewTaskForm extends React.Component {
 
   constructor(props) {
